@@ -11,7 +11,6 @@ const BMICalculator = () => {
   const [feet, setFeet] = useState("");
   const [inches, setInches] = useState("");
   const [showModal, setShowModal] = useState(false);
-  const [bmiCalculated, setBmiCalculated] = useState(false);  // New state to track BMI calculation
 
   const convertWeightToKg = (value, unit) => {
     return unit === "lbs" ? value * 0.453592 : value;
@@ -32,7 +31,6 @@ const BMICalculator = () => {
       const bmiValue = weightInKg / (heightInMeters * heightInMeters);
       setBmi(bmiValue.toFixed(2));
       categorizeBMI(bmiValue);
-      setBmiCalculated(true);  // Set BMI calculated flag to true
     }
   };
 
@@ -58,7 +56,7 @@ const BMICalculator = () => {
   return (
     <div className="p-8 bg-white dark:bg-gray-800 rounded-lg shadow-lg text-gray-900 dark:text-gray-100">
       <h2 className="text-2xl font-bold text-center mb-6">BMI Calculator</h2>
-
+      
       {/* Input Fields */}
       <div className="mb-4">
         <label className="block text-lg mb-2">Weight:</label>
@@ -134,36 +132,35 @@ const BMICalculator = () => {
         </div>
       )}
 
-      {/* Conditionally render BMI Chart button */}
-      {!bmiCalculated && (
-        <button
-          onClick={toggleModal}
-          className="w-full p-3 bg-gradient-to-r from-[#4CAF50] to-[#8BC34A] text-white rounded-lg mt-4 hover:from-[#8BC34A] hover:to-[#4CAF50]"
-        >
-          Show BMI Chart
-        </button>
-      )}
+      {/* BMI Chart Button */}
+      <button
+        onClick={toggleModal}
+        className="w-full p-3 bg-gradient-to-r from-[#4CAF50] to-[#8BC34A] text-white rounded-lg mt-4 hover:from-[#8BC34A] hover:to-[#4CAF50]"
+      >
+        Show BMI Chart
+      </button>
 
       {/* Modal for BMI Chart */}
       {showModal && (
-        <div className="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center z-50">
-          <div className="bg-white p-6 rounded-lg shadow-lg w-3/4">
-            <h3 className="text-xl text-gray-900 font-semibold text-center mb-4">BMI Chart</h3>
-            <div className="text-left">
-              <p className="text-blue-500"><strong>Underweight:</strong> {"<"}18.5</p>
-              <p className="text-green-500"><strong>Healthy weight:</strong> 18.5–24.9</p>
-              <p className="text-yellow-500"><strong>Overweight:</strong> 25–29.9</p>
-              <p className="text-red-500"><strong>Class 1 obesity:</strong> 30–34.9</p>
-            </div>
-            <button
-              onClick={toggleModal}
-              className="w-full p-3 bg-red-500 text-white rounded-lg mt-4"
-            >
-              Close
-            </button>
-          </div>
-        </div>
-      )}
+  <div className="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center z-50">
+    <div className="bg-white p-6 rounded-lg shadow-lg w-3/4"> {/* Increased width here */}
+      <h3 className="text-xl text-gray-900 font-semibold text-center mb-4">BMI Chart</h3>
+      <div className="text-left">
+        <p className="text-blue-500"><strong>Underweight:</strong> {"<"}18.5</p>
+        <p className="text-green-500"><strong>Healthy weight:</strong> 18.5–24.9</p>
+        <p className="text-yellow-500"><strong>Overweight:</strong> 25–29.9</p>
+        <p className="text-red-500"><strong>Class 1 obesity:</strong> 30–34.9</p>
+      </div>
+      <button
+        onClick={toggleModal}
+        className="w-full p-3 bg-red-500 text-white rounded-lg mt-4"
+      >
+        Close
+      </button>
+    </div>
+  </div>
+)}
+
     </div>
   );
 };
