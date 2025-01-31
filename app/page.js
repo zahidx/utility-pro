@@ -25,6 +25,7 @@ const tools = [
   { name: "Password Checker", icon: <FaKey />, component: PasswordChecker },
   { name: "Tip Calculator", icon: <FaPercentage />, component: TipCalculator },
   { name: "Interest Calculator", icon: <FaMoneyBillWave />, component: InterestCalculator },
+
   { name: "Date Difference Calculator", icon: <FaCalendar />, component: DateDifferenceCalculator },
   { name: "Calorie Calculator", icon: <FaUtensils />, component: CalorieCalculator },
   { name: "Random Password Generator", icon: <FaLock />, component: RandomPasswordGenerator },
@@ -42,7 +43,7 @@ export default function Home() {
         <p className="text-xl text-white mb-6">Your All-in-One Solution for Quick Calculations & Conversions</p>
         <button
           onClick={() => document.getElementById("tools-section").scrollIntoView({ behavior: "smooth" })}
-          className="bg-[#cad6ea] text-gray-900 px-6 py-3 rounded-lg text-xl hover:bg-[#e7d5f3] transition-colors"
+          className="bg-[#a09494] text-gray-900 px-6 py-3 rounded-lg text-xl hover:bg-[#e7d5f3] transition-colors"
         >
           Explore Our Tools
         </button>
@@ -51,19 +52,19 @@ export default function Home() {
       {/* Tools Grid and Modal Section */}
       <section id="tools-section" className="flex">
         {/* Left Section for Tools */}
-        <div className="w-1/3 p-6 bg-gradient-to-r from-[#F5A623] to-[#F7B924] dark:from-[#151A32] dark:to-[#151A32]">
-          <h2 className="text-3xl font-bold text-center text-gray-800 dark:text-white mb-12">Explore Our Tools</h2>
+        <div className="w-1/3 p-6 bg-gradient-to-r from-[#151A32] to-[#151A32] dark:from-[#151A32] dark:to-[#151A32]">
+          <h2 className="text-3xl font-bold text-center text-gray-100 dark:text-white mb-12">Explore Our Tools</h2>
           <div className="grid grid-cols-1 gap-8">
             {tools.map((tool, index) => (
               <div
                 key={index}
-                className="bg-gradient-to-r from-[#F5A623] to-[#F7B924] dark:from-[#2C3E50] dark:to-[#34495E] p-6 rounded-lg shadow-lg hover:scale-105 hover:shadow-xl transition-all cursor-pointer"
+                className="bg-gradient-to-r from-[#2C3E50] to-[#34495E] dark:from-[#2C3E50] dark:to-[#34495E] p-6 rounded-lg shadow-lg hover:scale-105 hover:shadow-xl transition-all cursor-pointer "
                 onClick={() => setSelectedTool(tool)}
               >
-                <div className="flex justify-center items-center text-4xl text-gray-800 dark:text-white mb-4">
+                <div className="flex justify-center items-center text-4xl text-gray-50 dark:text-white mb-4">
                   {tool.icon}
                 </div>
-                <h3 className="text-lg text-center text-gray-800 dark:text-white">{tool.name}</h3>
+                <h3 className="text-lg text-center text-gray-100 dark:text-white">{tool.name}</h3>
               </div>
             ))}
           </div>
