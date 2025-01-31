@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { FaCalculator, FaWeightHanging, FaDollarSign, FaRegClock, FaKey, FaPercentage, FaMoneyBillWave } from "react-icons/fa";
+import { FaCalculator, FaWeightHanging, FaDollarSign, FaRegClock, FaKey, FaPercentage, FaMoneyBillWave, FaRuler, FaUtensils, FaCalendar, FaLock } from "react-icons/fa";
 import Modal from "./tools/Modal";
 import dynamic from "next/dynamic";
 
@@ -12,6 +12,10 @@ const TimeZoneCalculator = dynamic(() => import("./tools/TimeZoneCalculator"));
 const PasswordChecker = dynamic(() => import("./tools/PasswordChecker"));
 const TipCalculator = dynamic(() => import("./tools/TipCalculator"));
 const InterestCalculator = dynamic(() => import("./tools/InterestCalculator"));
+const DateDifferenceCalculator = dynamic(() => import("./tools/DateDifferenceCalculator"));
+const CalorieCalculator = dynamic(() => import("./tools/CalorieCalculator"));
+const RandomPasswordGenerator = dynamic(() => import("./tools/RandomPasswordGenerator"));
+const UnitConverter = dynamic(() => import("./tools/UnitConverter"));
 
 const tools = [
   { name: "Age Calculator", icon: <FaCalculator />, component: AgeCalculator },
@@ -21,6 +25,10 @@ const tools = [
   { name: "Password Checker", icon: <FaKey />, component: PasswordChecker },
   { name: "Tip Calculator", icon: <FaPercentage />, component: TipCalculator },
   { name: "Interest Calculator", icon: <FaMoneyBillWave />, component: InterestCalculator },
+  { name: "Date Difference Calculator", icon: <FaCalendar />, component: DateDifferenceCalculator },
+  { name: "Calorie Calculator", icon: <FaUtensils />, component: CalorieCalculator },
+  { name: "Random Password Generator", icon: <FaLock />, component: RandomPasswordGenerator },
+  { name: "Unit Converter", icon: <FaRuler />, component: UnitConverter },
 ];
 
 export default function Home() {
